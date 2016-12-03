@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import { SignUpPage } from '../sign-up/sign-up';
 //import { TermsOfServicePage } from '../../terms-of-service/terms-of-service';
 import { AuthProvider } from '../../../providers/auth';
-
+import { LoginEmailPage } from '../login-email/login-email';
 /*
   Generated class for the Home page.
 
@@ -30,7 +30,7 @@ export class AuthPage {
   }
 
   openLoginPage() {
-    //this.navCtrl.push(LoginEmailPage);
+    this.navCtrl.push(LoginEmailPage);
   }
 
   openTermsOfService() {
@@ -38,11 +38,11 @@ export class AuthPage {
   }
 
   loginUserWithFacebook() {
-    this.auth.loginWithFacebook().subscribe(data => {
+    /*this.auth.loginWithFacebook().subscribe(data => {
       this.navCtrl.setRoot(HomePage);
     }, err => {
       this.error = err;
-    });
+    });*/
     console.log("log user with facebook");
   }
 

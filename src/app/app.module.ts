@@ -3,7 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { SignUpPage } from '../pages/auth/sign-up/sign-up';
 import { AuthPage } from '../pages/auth/home/home';
-
+import { LoginEmailPage } from '../pages/auth/login-email/login-email';
+import { RoutesListPage } from '../pages/routes/home/home';
 //import {ReactiveFormsModule} from "@angular/forms";
 import { FormsModule } from '@angular/forms';
 
@@ -23,7 +24,9 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     SignUpPage,
-    AuthPage
+    AuthPage,
+    LoginEmailPage,
+    RoutesListPage
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
@@ -35,7 +38,9 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     SignUpPage,
-    AuthPage
+    AuthPage,
+    LoginEmailPage,
+    RoutesListPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthProvider

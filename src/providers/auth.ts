@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Platform } from 'ionic-angular';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
@@ -53,6 +53,7 @@ export class AuthProvider {
   }
 
   loginWithEmail(credentials) {
+    console.log("credentials : " + typeof credentials.email);
     return Observable.create(observer => {
       this.af.auth.login(credentials, {
         provider: AuthProviders.Password,

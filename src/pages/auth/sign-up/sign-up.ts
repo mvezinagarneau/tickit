@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 //import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthProvider } from '../../../providers/auth';
+import { LoginEmailPage } from '../login-email/login-email';
 
 
 @Component({
@@ -57,6 +58,10 @@ export class SignUpPage {
       }, 1000);
     });
 
+  }
+
+  openLoginPage(){
+    this.navCtrl.push(LoginEmailPage);
   }
   ionViewDidLoad() {
     console.log('Hello SignUpPage Page');

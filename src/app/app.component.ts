@@ -4,6 +4,8 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { SignUpPage } from '../pages/auth/sign-up/sign-up';
 import { AuthPage } from '../pages/auth/home/home';
+import { RoutesListPage } from '../pages/routes/home/home';
+
 //import { AuthProvider } from '../providers/auth';
 
 @Component({
@@ -12,7 +14,7 @@ import { AuthPage } from '../pages/auth/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AuthPage;
+  rootPage: any = RoutesListPage;
 
   pages: Array<{title: string, component: any}>;
 
