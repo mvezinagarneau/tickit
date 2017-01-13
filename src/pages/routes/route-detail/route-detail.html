@@ -1,0 +1,60 @@
+<!--
+  Generated template for the RouteDetail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-title>route-detail</ion-title>
+  <ion-navbar>
+    
+    <!--<button ion-button icon-only right>
+        <ion-icon name="checkmark"></ion-icon>
+      </button>-->
+      <button ion-button icon-only right (click) = "openEditPage()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+       <button ion-button icon-only right (click) = "delete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+      <button ion-button icon-only right (click)="archive()">
+        <ion-icon name="archive"></ion-icon>
+      </button>
+      
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <ion-item>
+        <div class="circle-text cercle-{{item.color}}">
+          {{item.grade}}
+        </div>
+        <h2>{{item.name}}</h2>
+        {{ item.created | date : format : 'dd/MM/YYYY'}}
+    </ion-item>
+    <form (ngSubmit)="saveSend()" #addSendForm="ngForm">
+      <ion-item>
+        <ion-label>Style</ion-label>
+        <ion-select [(ngModel)]="form.style" name="style">
+          <ion-option *ngFor="let style of styles | async" [value] = "style.name">{{style.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Suggested grade</ion-label>
+        <ion-select [(ngModel)]="form.grade" name="grade">
+          <ion-option *ngFor="let grade of grades | async" [value] = "grade.grade">{{grade.grade}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+       <rating [(ngModel)]="form.rate" name="rate"></rating>
+      </ion-item>
+       <button ion-button block [disabled]="!addSendForm.form.valid"
+        class="sign-up-btn">Save
+       </button>
+    </form>
+    <ion-fab right bottom > 
+          <button ion-fab (click) = "share()" ><ion-icon name="share"></ion-icon></button>
+        </ion-fab>
+</ion-content>

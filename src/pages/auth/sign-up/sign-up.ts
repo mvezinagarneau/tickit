@@ -3,7 +3,8 @@ import { NavController, LoadingController } from 'ionic-angular';
 //import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthProvider } from '../../../providers/auth';
 import { LoginEmailPage } from '../login-email/login-email';
-
+//import { AuthPage } from '../home/home';
+import { RoutesListPage } from '../../routes/home/home';
 
 @Component({
   selector: 'page-sign-up',
@@ -43,7 +44,8 @@ export class SignUpPage {
       this.auth.loginWithEmail(registerData).subscribe(loginData => {
         setTimeout(() => {
           loading.dismiss();
-          //his.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(RoutesListPage);
+
         }, 1000);
       }, loginError => {
         setTimeout(() => {

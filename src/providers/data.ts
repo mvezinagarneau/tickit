@@ -32,8 +32,25 @@ export class DataProvider {
     this.af.database.object(path).update(data);
   }
 
-  list(path: string): FirebaseListObservable<any> {
+  /*list(path: string): FirebaseListObservable<any> {
     return this.af.database.list(path);
+  }*/
+  
+  list(path: string, query?:any): FirebaseListObservable<any> {
+    
+    if(query == undefined){
+     /* return this.af.database.list('/routes', {
+          query: {
+            orderByChild: 'archived',
+            equalTo: false
+          }
+        });*/
+        return this.af.database.list(path);
+    }
+    else{
+      return this.af.database.list(path,query);
+    }
+    
   }
 
   object(path: string): FirebaseObjectObservable<any> {

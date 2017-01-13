@@ -1,18 +1,56 @@
 <!--
-  Generated template for the RouteAdd page.
+  Generated template for the SignUp page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>route-add</ion-title>
+    <ion-title *ngIf="this.climbType == 'Routes'">
+      Add route 
+    </ion-title>
+     <ion-title *ngIf="this.climbType != 'Routes'">
+      Add boulder 
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content class="sign-up">
+  
+  <form (ngSubmit)="save()" #addRouteForm="ngForm">
+    <ion-list>
+     
+      <ion-item *ngIf="this.climbType == 'Routes'">
+        <ion-input type="text" placeholder="Name" [(ngModel)]="form.name" name="name" ></ion-input>
+      </ion-item>
+      <!--<ion-item>
+        <ion-input type="text" placeholder="Grade" [(ngModel)]="form.grade" name="grade"></ion-input>
+      </ion-item>-->
+    
+      <ion-item>
+        <ion-label>Grade  {{type}}</ion-label>
+        <ion-select [(ngModel)]="form.grade" name="grade">
+          <ion-option *ngFor="let grade of grades | async" [value] = "grade.grade">{{grade.grade}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Color</ion-label>
+        <ion-select [(ngModel)]="form.color" name="color">
+         <ion-option *ngFor="let color of colors | async" [value] = "color.name">{{color.name}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    
+     
+    </ion-list>
+    
+    <button ion-button block [disabled]="!addRouteForm.form.valid"
+      class="sign-up-btn">{{action}}
+    </button>
+    
 
-<ion-content padding>
-
+    <div padding class="error" *ngIf="error">
+      <p>{{error}}</p>
+    </div>
+  </form>
 </ion-content>

@@ -1,3 +1,108 @@
-page-routes {
+.sign-up {
+  background-image: url("../../assets/img/auth-background.jpg");
+  background-size: 100%;
+  background-position-y: 50%;
 
+  .log-in-txt {
+    width: 100%;
+    text-align: right;
+    color: white;
+  }
+
+  form {
+    width: 95%;
+    margin: auto;
+
+    .sign-up-btn {
+      background-color: rgb(74, 165, 217);
+      margin: auto;
+    }
+  }
+
+  .error {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(217, 74, 87);
+    p {
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+
+.circle-text {
+    display: table-cell;
+    height: 80px; /*change this and the width
+    for the size of your initial circle*/
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #000;
+   
+    /*font: 18px "josefin sans", arial; change this
+    for font-size and font-family*/
+}
+
+ .cercle-white
+ {
+     background: white;
+     color: black;
+ }
+
+  .cercle-blue
+ {
+     background: blue;
+     color: white;
+ }
+
+
+.cercle-red
+ {
+     background: red;
+     color: #fff;
+ }
+
+ .cercle-yellow
+ {
+     background: yellow;
+     color: black;
+ }
+
+   .cercle-green
+ {
+     background: lawngreen;
+     color: black;
+ }
+
+   .cercle-orange
+ {
+     background: orange;
+     color: black;
+ }
+
+   .cercle-purple
+ {
+     background: purple;
+     color: white;
+ }
+
+   .cercle-pink
+ {
+     background: deeppink;
+     color: white;
+ }
+
+   .cercle-black
+ {
+     background: black;
+     color: white;
+ }
+
+
+
+h2{
+    display: inline-block;
 }

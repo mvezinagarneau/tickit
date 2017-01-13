@@ -7,6 +7,10 @@ import { Observable } from 'rxjs/Observable';
 import { Facebook } from 'ionic-native';
 //import firebase from 'firebase';
 
+// Providers
+import {DataProvider} from './data';
+
+
 /*
   Generated class for the Auth provider.
 
@@ -16,7 +20,7 @@ import { Facebook } from 'ionic-native';
 @Injectable()
 export class AuthProvider {
    user: any;
-  constructor(private af: AngularFire, private platform: Platform) {
+  constructor(private af: AngularFire, private data: DataProvider, private platform: Platform) {
     console.log('Hello Auth Provider');
   }
 
@@ -28,7 +32,8 @@ export class AuthProvider {
           email: authData.auth.email,
           emailVerified: false,
           provider: 'email',
-          image: 'https://freeiconshop.com/files/edd/person-solid.png'
+          image: 'https://freeiconshop.com/files/edd/person-solid.png',
+          role: 'admin'
         });
         credentials.created = true;
         observer.next(credentials);
@@ -100,6 +105,22 @@ export class AuthProvider {
           observer.error(error);
         });
       }
+    });
+  }
+
+  getUserData() {
+    return Observable.create(observer => {
+      this.af.auth.subscribe(authData => {
+        if (authData) {
+          this.data.object('users/' + authData.uid).subscribe(userData => {
+            //console.log(userData);
+            this.user = userData;
+            observer.next(userData);
+          });
+        } else {
+          observer.error();
+        }
+      });
     });
   }
 
